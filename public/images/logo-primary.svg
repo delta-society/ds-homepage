@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 60" width="520" height="60">
+  <style>
+    .wordmark {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 48px;
+      letter-spacing: 0.02em;
+      fill: currentColor;
+    }
+  </style>
+  <text x="0" y="46" class="wordmark">Delta Society</text>
+</svg>
