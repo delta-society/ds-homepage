@@ -2,15 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n";
 
-export default function Header() {
+export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const otherLang: Locale = lang === "ko" ? "en" : "ko";
+  const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
+
+  const navLinks = [
+    { href: `/${lang}#about`, label: t.nav.about },
+    { href: `/${lang}#team`, label: t.nav.team },
+    { href: `/${lang}#media`, label: t.nav.media },
+    { href: `/${lang}#events`, label: t.nav.events },
+  ];
 
   return (
     <header className="bg-ds-primary text-white sticky top-0 z-50">
       <div className="max-w-[var(--container-max)] mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href={`/${lang}`} className="flex items-center gap-3">
           <Image
             src="/images/logo-primary.svg"
             alt="Delta Society"
@@ -22,35 +36,29 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Language Toggle */}
           <Link
-            href="/#about"
-            className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
+            href={switchPath}
+            className="text-xs font-medium text-white/50 hover:text-white border border-white/20 px-3 py-1.5 rounded-md transition-colors"
           >
-            About
+            {otherLang === "en" ? "EN" : "KO"}
           </Link>
+
           <Link
-            href="/#team"
-            className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
-          >
-            Team
-          </Link>
-          <Link
-            href="/#media"
-            className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
-          >
-            Media
-          </Link>
-          <Link
-            href="/#events"
-            className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
-          >
-            Events
-          </Link>
-          <Link
-            href="/apply"
+            href={`/${lang}/apply`}
             className="bg-ds-accent text-ds-primary px-5 py-2 text-sm font-semibold rounded-lg hover:bg-ds-spark transition-colors"
           >
-            Join Us
+            {t.nav.joinUs}
           </Link>
         </nav>
 
@@ -61,19 +69,8 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            {menuOpen ? (
-              <path d="M6 6l12 12M6 18L18 6" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {menuOpen ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
           </svg>
         </button>
       </div>
@@ -81,40 +78,29 @@ export default function Header() {
       {/* Mobile Nav */}
       {menuOpen && (
         <nav className="md:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm text-white/80 hover:text-ds-spark"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link
-            href="/#about"
-            className="text-sm text-white/80 hover:text-ds-spark"
+            href={switchPath}
+            className="text-sm text-white/50 hover:text-white"
             onClick={() => setMenuOpen(false)}
           >
-            About
+            {otherLang === "en" ? "Switch to English" : "한국어로 전환"}
           </Link>
           <Link
-            href="/#team"
-            className="text-sm text-white/80 hover:text-ds-spark"
-            onClick={() => setMenuOpen(false)}
-          >
-            Team
-          </Link>
-          <Link
-            href="/#media"
-            className="text-sm text-white/80 hover:text-ds-spark"
-            onClick={() => setMenuOpen(false)}
-          >
-            Media
-          </Link>
-          <Link
-            href="/#events"
-            className="text-sm text-white/80 hover:text-ds-spark"
-            onClick={() => setMenuOpen(false)}
-          >
-            Events
-          </Link>
-          <Link
-            href="/apply"
+            href={`/${lang}/apply`}
             className="bg-ds-accent text-ds-primary px-5 py-2 text-sm font-semibold rounded-lg text-center hover:bg-ds-spark"
             onClick={() => setMenuOpen(false)}
           >
-            Join Us
+            {t.nav.joinUs}
           </Link>
         </nav>
       )}
