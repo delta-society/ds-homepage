@@ -17,7 +17,6 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
   const navLinks = [
     { href: `/${lang}#about`, label: t.nav.about },
     { href: `/${lang}#team`, label: t.nav.team },
-    { href: `/${lang}#media`, label: t.nav.media },
     { href: `/${lang}#events`, label: t.nav.events },
   ];
 
