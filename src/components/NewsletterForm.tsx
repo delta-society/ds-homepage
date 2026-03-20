@@ -11,57 +11,16 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
     e.preventDefault();
     if (!email || status === "loading") return;
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-    if (!supabaseUrl || !supabaseKey) {
-      setStatus("error");
-      return;
-    }
-
     setStatus("loading");
 
     try {
-      // Loops API — newsletter delivery
-      const loopsKey = process.env.NEXT_PUBLIC_LOOPS_API_KEY;
-      const loopsPromise = loopsKey
-        ? fetch("https://app.loops.so/api/v1/contacts/create", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${loopsKey}`,
-            },
-            body: JSON.stringify({
-              email,
-              source: "ds-homepage",
-              subscribed: true,
-            }),
-          })
-        : Promise.resolve(null);
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
-      // Supabase — CRM record
-      const supabasePromise =
-        supabaseUrl && supabaseKey
-          ? fetch(`${supabaseUrl}/rest/v1/newsletter_subscribers`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                apikey: supabaseKey,
-                Authorization: `Bearer ${supabaseKey}`,
-                Prefer: "return=minimal",
-              },
-              body: JSON.stringify({
-                email,
-                source: "ds-homepage",
-                subscribed_at: new Date().toISOString(),
-              }),
-            })
-          : Promise.resolve(null);
-
-      // Fire both in parallel — Loops is primary
-      const [loopsRes] = await Promise.all([loopsPromise, supabasePromise]);
-
-      if (!loopsRes || loopsRes.ok || loopsRes.status === 200 || loopsRes.status === 409) {
+      if (res.ok) {
         setStatus("success");
         setEmail("");
       } else {
