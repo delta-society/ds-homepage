@@ -18,37 +18,46 @@ export default async function Home({
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-ds-primary text-white min-h-[80vh] flex items-center">
-        <div className="max-w-[var(--container-max)] mx-auto px-6 py-24 md:py-32">
-          <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-6 animate-fade-in-up">
-            {t.hero.subtitle}
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] mb-8 animate-fade-in-up animate-delay-100">
-            {t.hero.title1}{" "}
-            <span className="text-ds-accent">{t.hero.title2}</span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-12 animate-fade-in-up animate-delay-200 whitespace-pre-line">
-            {t.hero.description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-300">
-            <Link
-              href={`/${lang}/apply`}
-              className="bg-ds-accent text-ds-primary px-8 py-3.5 font-heading font-semibold rounded-lg hover:bg-ds-spark transition-colors text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-            >
-              {t.hero.cta1}
-            </Link>
-            <Link
-              href="#events"
-              className="border border-white/30 text-white px-8 py-3.5 font-heading font-semibold rounded-lg hover:bg-white/10 transition-colors text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              {t.hero.cta2}
-            </Link>
+      <section className="bg-ds-primary text-white min-h-[80vh] flex items-center overflow-hidden">
+        <div className="max-w-[var(--container-max)] mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-6 animate-fade-in-up">
+              {t.hero.subtitle}
+            </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] mb-8 animate-fade-in-up animate-delay-100">
+              {t.hero.title1}{" "}
+              <span className="text-ds-accent">{t.hero.title2}</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-12 animate-fade-in-up animate-delay-200 whitespace-pre-line">
+              {t.hero.description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-300">
+              <Link
+                href={`/${lang}/apply`}
+                className="bg-ds-accent text-ds-primary px-8 py-3.5 font-heading font-semibold rounded-lg hover:bg-ds-spark transition-colors text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+              >
+                {t.hero.cta1}
+              </Link>
+              <Link
+                href="#events"
+                className="border border-white/30 text-white px-8 py-3.5 font-heading font-semibold rounded-lg hover:bg-white/10 transition-colors text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                {t.hero.cta2}
+              </Link>
+            </div>
+          </div>
+          <div className="hidden lg:flex justify-center animate-fade-in-up animate-delay-300">
+            <img
+              src="/images/hero-illustration.png"
+              alt="Delta Society Community"
+              className="w-full max-w-md opacity-90"
+            />
           </div>
         </div>
       </section>
 
       {/* ── About / What We Do ── */}
-      <section id="about" className="py-24 md:py-32">
+      <section id="about" className="py-16 md:py-24">
         <div className="max-w-[var(--container-max)] mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
@@ -79,7 +88,7 @@ export default async function Home({
       </section>
 
       {/* ── Team ── */}
-      <section id="team" className="py-24 md:py-32 bg-ds-primary">
+      <section id="team" className="py-16 md:py-24 bg-ds-primary">
         <div className="max-w-[var(--container-max)] mx-auto px-6">
           <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
             {t.team.label}
@@ -123,7 +132,7 @@ export default async function Home({
       <MediaSection lang={lang} t={t} />
 
       {/* ── Events ── */}
-      <section id="events" className="py-24 md:py-32 bg-ds-secondary-alt">
+      <section id="events" className="py-16 md:py-24 bg-ds-secondary-alt">
         <div className="max-w-[var(--container-max)] mx-auto px-6 text-center">
           <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
             {t.events.label}
@@ -143,7 +152,7 @@ export default async function Home({
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-24 md:py-32 bg-ds-primary text-white text-center">
+      <section className="py-16 md:py-24 bg-ds-primary text-white text-center">
         <div className="max-w-[var(--container-max)] mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">{t.cta.title}</h2>
           <p className="text-lg text-white/70 max-w-xl mx-auto mb-12">{t.cta.description}</p>

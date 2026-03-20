@@ -11,54 +11,62 @@ const typeBadge: Record<string, { label: string; color: string }> = {
   youtube: { label: "YouTube", color: "bg-red-500 text-white" },
   newsletter: { label: "Newsletter", color: "bg-ds-primary text-white" },
   linkedin: { label: "LinkedIn", color: "bg-blue-600 text-white" },
-  x: { label: "X", color: "bg-ds-primary text-white" },
+  x: { label: "X/Threads", color: "bg-ds-primary text-white" },
   other: { label: "Other", color: "bg-ds-text-muted text-white" },
 };
 
-function mapSupabaseToMedia(row: Record<string, unknown>): MediaItem {
-  const channel = (row.channel as string) || "other";
-  let type: MediaItem["type"] = "blog";
-  if (channel === "youtube" || channel === "podcast") type = channel;
-  else if (channel === "linkedin" || channel === "x") type = "newsletter";
-  else type = "blog";
+interface LeaderboardItem {
+  title: string;
+  url: string;
+  channel: string;
+  content_type: string;
+  member: string;
+  published_at: string;
+  is_original: boolean;
+}
+
+function mapToMedia(item: LeaderboardItem): MediaItem {
+  const channelMap: Record<string, MediaItem["type"]> = {
+    blog: "blog",
+    youtube: "youtube",
+    podcast: "podcast",
+    linkedin: "newsletter",
+    x: "newsletter",
+    other: "blog",
+  };
 
   return {
-    title: (row.title as string) || "",
-    type,
-    author: (row.member as string) || "Delta Society",
-    url: (row.url as string) || "#",
-    date: ((row.published_at as string) || "").slice(0, 10),
+    title: item.title,
+    type: channelMap[item.channel] || "blog",
+    author: item.member,
+    url: item.url,
+    date: item.published_at?.slice(0, 10) || "",
     description: "",
   };
 }
 
 export function MediaSection({ lang, t }: { lang: Locale; t: Dictionary }) {
   const [items, setItems] = useState<MediaItem[]>(staticMedia);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-    if (!supabaseUrl || !supabaseKey) return;
-
-    fetch(
-      `${supabaseUrl}/rest/v1/content_log?status=eq.published&order=published_at.desc&limit=6`,
-      {
-        headers: {
-          apikey: supabaseKey,
-          Authorization: `Bearer ${supabaseKey}`,
-        },
-      }
-    )
+    fetch("https://media-play-leaderboard.vercel.app/api/content?limit=30")
       .then((res) => (res.ok ? res.json() : Promise.reject()))
-      .then((data: Record<string, unknown>[]) => {
-        if (data.length > 0) {
-          setItems(data.map(mapSupabaseToMedia));
+      .then((data: { items: LeaderboardItem[] }) => {
+        if (data.items && data.items.length > 0) {
+          // Filter: only originals (5pt) for homepage showcase
+          const originals = data.items
+            .filter((i) => i.is_original && i.url)
+            .slice(0, 6)
+            .map(mapToMedia);
+
+          if (originals.length >= 3) {
+            setItems(originals);
+          }
         }
+        setLoaded(true);
       })
-      .catch(() => {
-        // Silently fall back to static data
-      });
+      .catch(() => setLoaded(true));
   }, []);
 
   return (
@@ -70,31 +78,26 @@ export function MediaSection({ lang, t }: { lang: Locale; t: Dictionary }) {
         <h2 className="text-3xl md:text-4xl font-bold mb-16">{t.media.title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => {
+          {items.map((item, idx) => {
             const badge = typeBadge[item.type] || typeBadge.other;
-            const hasLink = item.url !== "#";
-            const Tag = hasLink ? "a" : "div";
-            const linkProps = hasLink
-              ? {
-                  href: item.url,
-                  target: "_blank" as const,
-                  rel: "noopener noreferrer",
-                }
-              : {};
 
             return (
-              <Tag
-                key={item.title}
-                {...linkProps}
+              <a
+                key={`${item.title}-${idx}`}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-ds-primary/10 rounded-xl p-6 hover:border-ds-spark transition-colors group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${badge.color}`}>
+                  <span
+                    className={`text-xs font-medium px-2.5 py-1 rounded-full ${badge.color}`}
+                  >
                     {badge.label}
                   </span>
                   <span className="text-xs text-ds-text-muted">{item.date}</span>
                 </div>
-                <h3 className="text-lg font-bold mb-2 group-hover:text-ds-primary transition-colors">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-ds-primary transition-colors leading-snug">
                   {item.title}
                 </h3>
                 {item.description && (
@@ -102,8 +105,8 @@ export function MediaSection({ lang, t }: { lang: Locale; t: Dictionary }) {
                     {item.description}
                   </p>
                 )}
-                <p className="text-xs text-ds-text-muted">{item.author}</p>
-              </Tag>
+                <p className="text-xs text-ds-text-muted capitalize">{item.author}</p>
+              </a>
             );
           })}
         </div>
