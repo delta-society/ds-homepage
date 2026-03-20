@@ -14,13 +14,22 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
     setStatus("loading");
 
     try {
-      const res = await fetch("/api/subscribe", {
+      // Loops API — contact creation endpoint (publishable, client-safe)
+      const res = await fetch("https://app.loops.so/api/v1/contacts/create", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_LOOPS_API_KEY}`,
+        },
+        body: JSON.stringify({
+          email,
+          source: "ds-homepage",
+          subscribed: true,
+        }),
       });
 
-      if (res.ok) {
+      if (res.ok || res.status === 409) {
+        // 409 = already exists, still a success
         setStatus("success");
         setEmail("");
       } else {
