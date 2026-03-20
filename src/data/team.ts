@@ -16,7 +16,7 @@ export const team: TeamMember[] = [
   {
     name: "Zoon Chang",
     nameKo: "장원준",
-    role: "Founder & CO",
+    role: "Founder & CEO",
     keyword: "Realization",
     photo: "/images/team-zoon.jpg",
     bio: "아웃라이어를 연결하고 함께 만드는 인프라를 설계합니다.",
