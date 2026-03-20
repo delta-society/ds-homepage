@@ -49,7 +49,7 @@ const ko = {
     label: "Events",
     title: "Upcoming Events",
     description: "Monthly Delta, GTM Roundtable 등 아웃라이어가 모이는 행사를 확인하세요.",
-    register: "Luma에서 이벤트 확인하기",
+    register: "이벤트 확인하기",
   },
   cta: {
     title: "Are You an Outlier?",
