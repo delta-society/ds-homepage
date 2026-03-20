@@ -8,17 +8,17 @@ const en = {
   },
   hero: {
     subtitle: "Delta Society",
-    title1: "Where Outliers",
-    title2: "Connect & Build",
-    description: "A knowledge-driven community where outliers\nat the frontier of change connect and build together.",
+    title1: "Compounding",
+    title2: "Outliers",
+    description: "A knowledge network for outliers",
     cta1: "Join the Club",
     cta2: "Upcoming Events",
   },
   about: {
     label: "What We Do",
-    title: "A Knowledge Network\nfor Outliers",
+    title: "Where Knowledge\nBecomes Business",
     description:
-      "Delta Society is a community where change-makers — founders, builders, and investors — come together to share sharp insights and co-build ventures. We create real cycles of insight and opportunity, not superficial networking.",
+      "Where sharp knowledge turns into business. Not superficial networking, but real cycles of insight and opportunity.",
     pillars: [
       {
         title: "Delta Capture",
@@ -48,7 +48,8 @@ const en = {
   events: {
     label: "Events",
     title: "Upcoming Events",
-    register: "Register on Luma",
+    description: "Join Monthly Delta, GTM Roundtable and more — where outliers gather.",
+    register: "View Events on Luma",
   },
   cta: {
     title: "Are You an Outlier?",

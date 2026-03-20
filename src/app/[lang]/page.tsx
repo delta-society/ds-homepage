@@ -2,7 +2,6 @@ import Link from "next/link";
 import { type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { team } from "@/data/team";
-import { events } from "@/data/events";
 import { MediaSection } from "@/components/MediaSection";
 
 const pillarIcons = ["◈", "◇", "△"];
@@ -102,8 +101,7 @@ export default async function Home({
                 </div>
                 <h3 className="text-xl font-bold text-white mb-0.5">{member.nameKo}</h3>
                 <p className="text-white/50 text-sm mb-2">{member.name}</p>
-                <p className="text-ds-accent text-sm font-medium mb-3">{member.role}</p>
-                <p className="text-white/60 text-sm leading-relaxed mb-6">{member.bio}</p>
+                <p className="text-ds-accent text-sm font-medium mb-6">{member.role}</p>
                 <div className="flex gap-3">
                   {member.sns.linkedin && (
                     <a href={member.sns.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-ds-accent transition-colors" aria-label={`${member.name} LinkedIn`}>
@@ -127,25 +125,21 @@ export default async function Home({
 
       {/* ── Events ── */}
       <section id="events" className="py-24 md:py-32 bg-ds-secondary-alt">
-        <div className="max-w-[var(--container-max)] mx-auto px-6">
+        <div className="max-w-[var(--container-max)] mx-auto px-6 text-center">
           <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
             {t.events.label}
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">{t.events.title}</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {events.map((event) => (
-              <div key={event.title} className="bg-white border border-ds-primary/10 rounded-xl p-8 hover:border-ds-spark transition-colors">
-                <p className="text-ds-accent font-heading font-semibold text-sm mb-2">{event.date}</p>
-                <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
-                <p className="text-ds-text-body text-sm leading-relaxed mb-6">{event.description}</p>
-                <a href={event.lumaUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-ds-primary text-white px-6 py-2.5 text-sm font-semibold rounded-lg hover:bg-ds-primary-light transition-colors">
-                  {t.events.register}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                </a>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.events.title}</h2>
+          <p className="text-ds-text-body text-lg mb-12 max-w-xl mx-auto">{t.events.description}</p>
+          <a
+            href="https://luma.com/deltasociety?k=c"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-ds-primary text-white px-8 py-4 font-heading font-semibold rounded-lg hover:bg-ds-primary-light transition-colors"
+          >
+            {t.events.register}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
         </div>
       </section>
 

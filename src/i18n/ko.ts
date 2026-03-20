@@ -8,17 +8,17 @@ const ko = {
   },
   hero: {
     subtitle: "Delta Society",
-    title1: "Where Outliers",
-    title2: "Connect & Build",
-    description: "변화의 최전선에 있는 아웃라이어들이 모여\n지식을 나누고 함께 만드는 커뮤니티.",
+    title1: "Compounding",
+    title2: "Outliers",
+    description: "아웃라이어를 위한 지식 네트워크",
     cta1: "Join the Club",
     cta2: "Upcoming Events",
   },
   about: {
     label: "What We Do",
-    title: "아웃라이어를 위한\n지식 기반 네트워크",
+    title: "지식이 사업이 되는 곳",
     description:
-      "Delta Society는 변화를 만드는 사람들 — 창업자, 빌더, 투자자 —이 모여 날카로운 지식을 나누고 함께 사업을 만드는 커뮤니티입니다. 기존 네트워크의 형식적인 교류가 아닌, 실질적인 인사이트와 기회의 순환을 만듭니다.",
+      "날카로운 지식이 사업으로 연결되는 곳. 형식적인 네트워킹이 아닌, 실질적인 인사이트와 기회의 순환을 만듭니다.",
     pillars: [
       {
         title: "Delta Capture",
@@ -48,7 +48,8 @@ const ko = {
   events: {
     label: "Events",
     title: "Upcoming Events",
-    register: "Register on Luma",
+    description: "Monthly Delta, GTM Roundtable 등 아웃라이어가 모이는 행사를 확인하세요.",
+    register: "Luma에서 이벤트 확인하기",
   },
   cta: {
     title: "Are You an Outlier?",
