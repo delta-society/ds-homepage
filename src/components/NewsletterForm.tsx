@@ -22,22 +22,46 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
     setStatus("loading");
 
     try {
-      const res = await fetch(`${supabaseUrl}/rest/v1/newsletter_subscribers`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: supabaseKey,
-          Authorization: `Bearer ${supabaseKey}`,
-          Prefer: "return=minimal",
-        },
-        body: JSON.stringify({
-          email,
-          source: "ds-homepage",
-          subscribed_at: new Date().toISOString(),
-        }),
-      });
+      // Loops API — newsletter delivery
+      const loopsKey = process.env.NEXT_PUBLIC_LOOPS_API_KEY;
+      const loopsPromise = loopsKey
+        ? fetch("https://app.loops.so/api/v1/contacts/create", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${loopsKey}`,
+            },
+            body: JSON.stringify({
+              email,
+              source: "ds-homepage",
+              subscribed: true,
+            }),
+          })
+        : Promise.resolve(null);
 
-      if (res.ok || res.status === 201) {
+      // Supabase — CRM record
+      const supabasePromise =
+        supabaseUrl && supabaseKey
+          ? fetch(`${supabaseUrl}/rest/v1/newsletter_subscribers`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                apikey: supabaseKey,
+                Authorization: `Bearer ${supabaseKey}`,
+                Prefer: "return=minimal",
+              },
+              body: JSON.stringify({
+                email,
+                source: "ds-homepage",
+                subscribed_at: new Date().toISOString(),
+              }),
+            })
+          : Promise.resolve(null);
+
+      // Fire both in parallel — Loops is primary
+      const [loopsRes] = await Promise.all([loopsPromise, supabasePromise]);
+
+      if (!loopsRes || loopsRes.ok || loopsRes.status === 200 || loopsRes.status === 409) {
         setStatus("success");
         setEmail("");
       } else {
