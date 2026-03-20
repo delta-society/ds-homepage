@@ -3,6 +3,8 @@
 import { useState } from "react";
 import type { Dictionary } from "@/i18n";
 
+const LOOPS_FORM_ID = "cmmno77qr00a70ixge5tkwtfg";
+
 export function NewsletterForm({ t }: { t: Dictionary }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -14,14 +16,16 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
     setStatus("loading");
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
+      const res = await fetch(
+        `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }
+      );
 
-      if (res.ok || res.status === 409) {
-        // 409 = already exists, still a success
+      if (res.ok) {
         setStatus("success");
         setEmail("");
       } else {
