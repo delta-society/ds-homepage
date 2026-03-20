@@ -27,7 +27,7 @@ export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
 
           {/* Links */}
           <div>
-            <h4 className="font-heading text-sm font-semibold mb-4 text-white/40 uppercase tracking-wider">
+            <h4 className="font-heading text-sm font-semibold mb-4 text-white/50 uppercase tracking-wider">
               {t.footer.navigate}
             </h4>
             <ul className="space-y-3">
@@ -51,7 +51,7 @@ export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-heading text-sm font-semibold mb-4 text-white/40 uppercase tracking-wider">
+            <h4 className="font-heading text-sm font-semibold mb-4 text-white/50 uppercase tracking-wider">
               {t.footer.stayUpdated}
             </h4>
             <p className="text-sm text-white/60 mb-4">
@@ -63,7 +63,7 @@ export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
 
         {/* Bottom */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/50">
             © 2026 Delta Society. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
