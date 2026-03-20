@@ -20,8 +20,8 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
         `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ email }),
         }
       );
 
