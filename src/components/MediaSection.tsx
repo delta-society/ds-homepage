@@ -72,7 +72,7 @@ export function MediaSection({ lang, t }: { lang: Locale; t: Dictionary }) {
   return (
     <section id="media" className="py-24 md:py-32">
       <div className="max-w-[var(--container-max)] mx-auto px-6">
-        <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
+        <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-4">
           {t.media.label}
         </p>
         <h2 className="text-3xl md:text-4xl font-bold mb-16">{t.media.title}</h2>

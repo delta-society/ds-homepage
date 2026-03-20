@@ -51,7 +51,7 @@ export default async function Home({
       <section id="about" className="py-16 md:py-24">
         <div className="max-w-[var(--container-max)] mx-auto px-6">
           <div className="max-w-3xl">
-            <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
+            <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-4">
               {t.about.label}
             </p>
             <h2 className="text-3xl md:text-5xl font-bold mb-8 whitespace-pre-line">
@@ -125,7 +125,7 @@ export default async function Home({
       {/* ── Events ── */}
       <section id="events" className="py-16 md:py-24 bg-ds-secondary-alt">
         <div className="max-w-[var(--container-max)] mx-auto px-6 text-center">
-          <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
+          <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-4">
             {t.events.label}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.events.title}</h2>

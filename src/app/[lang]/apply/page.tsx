@@ -19,7 +19,7 @@ export default async function ApplyPage({
     <section className="py-24 md:py-32">
       <div className="max-w-[var(--container-max)] mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center mb-16">
-          <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
+          <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-4">
             {t.apply.label}
           </p>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 whitespace-pre-line">
