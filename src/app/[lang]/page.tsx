@@ -96,10 +96,12 @@ export default async function Home({
                 key={member.name}
                 className="border border-white/10 rounded-xl p-8 hover:border-ds-accent/50 transition-colors"
               >
-                <div className="w-20 h-20 rounded-full bg-white/10 mb-6 flex items-center justify-center text-2xl font-heading font-bold text-ds-accent">
-                  {member.name.charAt(0)}
+                <p className="text-4xl font-heading font-bold text-ds-accent mb-4">{member.keyword}</p>
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-ds-accent/30 mb-6">
+                  <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-0.5">{member.nameKo}</h3>
+                <p className="text-white/50 text-sm mb-2">{member.name}</p>
                 <p className="text-ds-accent text-sm font-medium mb-3">{member.role}</p>
                 <p className="text-white/60 text-sm leading-relaxed mb-6">{member.bio}</p>
                 <div className="flex gap-3">
