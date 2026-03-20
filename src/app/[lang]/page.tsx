@@ -23,8 +23,9 @@ export default async function Home({
           <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-6 animate-fade-in-up">
             {t.hero.subtitle}
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[1.1] tracking-[-0.03em] mb-6 animate-fade-in-up animate-delay-100">
-            {t.hero.title1}{" "}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] tracking-[-0.03em] mb-6 animate-fade-in-up animate-delay-100">
+            {t.hero.title1}
+            <br />
             <span className="text-ds-accent">{t.hero.title2}</span>
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-lg mb-10 leading-relaxed animate-fade-in-up animate-delay-200">

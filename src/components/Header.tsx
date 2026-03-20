@@ -56,7 +56,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
 
           <Link
             href={`/${lang}/apply`}
-            className="bg-ds-accent text-ds-primary px-5 py-2 text-sm font-semibold rounded-lg hover:bg-ds-spark transition-colors"
+            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md hover:bg-white transition-colors"
           >
             {t.nav.joinUs}
           </Link>
@@ -97,7 +97,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
           </Link>
           <Link
             href={`/${lang}/apply`}
-            className="bg-ds-accent text-ds-primary px-5 py-2 text-sm font-semibold rounded-lg text-center hover:bg-ds-spark"
+            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md text-center hover:bg-white"
             onClick={() => setMenuOpen(false)}
           >
             {t.nav.joinUs}
