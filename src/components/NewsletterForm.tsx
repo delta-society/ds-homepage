@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Dictionary } from "@/i18n";
+import { config } from "@/lib/config";
 
 export function NewsletterForm({ t }: { t: Dictionary }) {
   const [email, setEmail] = useState("");
@@ -15,11 +16,11 @@ export function NewsletterForm({ t }: { t: Dictionary }) {
 
     try {
       // Loops API — contact creation endpoint (publishable, client-safe)
-      const res = await fetch("https://app.loops.so/api/v1/contacts/create", {
+      const res = await fetch(config.loops.endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_LOOPS_API_KEY}`,
+          Authorization: `Bearer ${config.loops.apiKey}`,
         },
         body: JSON.stringify({
           email,
