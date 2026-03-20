@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
