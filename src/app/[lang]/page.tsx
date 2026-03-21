@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { team } from "@/data/team";
+import JoinUsSection from "@/components/JoinUsSection";
 
 const pillarIcons = ["◈", "◇", "△"];
 
@@ -111,6 +112,9 @@ export default async function Home({
           </div>
         </div>
       </section>
+
+      {/* ── Join Us ── */}
+      <JoinUsSection lang={lang} />
 
       {/* ── Events ── */}
       <section id="events" className="py-16 md:py-24 bg-ds-secondary-alt">
