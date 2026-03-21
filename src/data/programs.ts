@@ -1,9 +1,9 @@
-export type ProgramStatus = "recruiting" | "active" | "planning" | "paused";
+export type ProgramStatus = "recruiting" | "planning";
 
 export interface Program {
   id: string;
-  name: string;
-  subtitle: string;
+  name: { ko: string; en: string };
+  subtitle: { ko: string; en: string };
   copy: { ko: string; en: string };
   status: ProgramStatus;
   slug: string;
@@ -14,6 +14,7 @@ export interface Program {
 export interface ProgramCategory {
   id: string;
   label: string;
+  icon: string;
   tagline: { ko: string; en: string };
   description: { ko: string; en: string };
   programs: Program[];
@@ -23,6 +24,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "research-club",
     label: "Research Club",
+    icon: "◈",
     tagline: {
       ko: "주제를 깊이 파고 싶다면",
       en: "Deep-dive into a topic",
@@ -34,8 +36,8 @@ export const programCategories: ProgramCategory[] = [
     programs: [
       {
         id: "ax",
-        name: "AX Research Club",
-        subtitle: "AI Transformation",
+        name: { ko: "AX Research Club", en: "AX Research Club" },
+        subtitle: { ko: "AI Transformation", en: "AI Transformation" },
         copy: {
           ko: "AI가 바꾸는 기업 구조를 8주간 함께 리서치합니다",
           en: "8 weeks of research on how AI reshapes organizations",
@@ -47,8 +49,8 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         id: "gtm",
-        name: "GTM Research Club",
-        subtitle: "Go-to-Market",
+        name: { ko: "GTM Research Club", en: "GTM Research Club" },
+        subtitle: { ko: "Go-to-Market", en: "Go-to-Market" },
         copy: {
           ko: "제품을 시장에 가져가는 과정을 함께 파고듭니다",
           en: "Deep-dive into bringing products to market",
@@ -60,8 +62,8 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         id: "pmf",
-        name: "PMF Research Club",
-        subtitle: "Product-Market Fit",
+        name: { ko: "PMF Research Club", en: "PMF Research Club" },
+        subtitle: { ko: "Product-Market Fit", en: "Product-Market Fit" },
         copy: {
           ko: "고객이 진짜 원하는 것을 찾는 리서치를 진행합니다",
           en: "Research to find what customers truly want",
@@ -76,6 +78,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "builder-programs",
     label: "Builder Programs",
+    icon: "◇",
     tagline: {
       ko: "사업을 같이 만들고 싶다면",
       en: "Build a business together",
@@ -87,8 +90,8 @@ export const programCategories: ProgramCategory[] = [
     programs: [
       {
         id: "compounder-club",
-        name: "Compounder Club",
-        subtitle: "사업가 커뮤니티",
+        name: { ko: "Compounder Club", en: "Compounder Club" },
+        subtitle: { ko: "사업가 커뮤니티", en: "Builder Community" },
         copy: {
           ko: "사업을 만들고 있는 사람들이 모여 서로의 경험을 나눕니다",
           en: "Builders share experiences and learn from each other",
@@ -100,8 +103,8 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         id: "fireside-fellowship",
-        name: "Fireside Builder Fellowship",
-        subtitle: "대학생 빌더 후원",
+        name: { ko: "Fireside Builder Fellowship", en: "Fireside Builder Fellowship" },
+        subtitle: { ko: "대학생 빌더 후원", en: "Student Builder Sponsorship" },
         copy: {
           ko: "AI로 무언가를 만들려는 대학생을 후원합니다",
           en: "Supporting students who build with AI",
@@ -116,6 +119,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "camp",
     label: "Camp",
+    icon: "△",
     tagline: {
       ko: "AI를 실무에 쓰고 싶다면",
       en: "Apply AI in your work",
@@ -127,8 +131,8 @@ export const programCategories: ProgramCategory[] = [
     programs: [
       {
         id: "ai-native-camp",
-        name: "AI Native Camp",
-        subtitle: "실무자 대상",
+        name: { ko: "AI Native Camp", en: "AI Native Camp" },
+        subtitle: { ko: "실무자 대상", en: "For Practitioners" },
         copy: {
           ko: "AI 도구로 일하는 방식을 직접 바꿔보는 집중 과정입니다",
           en: "An intensive course to transform how you work with AI tools",
@@ -140,8 +144,8 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         id: "camp-finance",
-        name: "AI Native Camp for Finance",
-        subtitle: "금융권 특화",
+        name: { ko: "AI Native Camp for Finance", en: "AI Native Camp for Finance" },
+        subtitle: { ko: "금융권 특화", en: "For Finance Professionals" },
         copy: {
           ko: "금융권 실무자를 위한 AI 도구 적용 과정입니다",
           en: "AI tool adoption course for finance professionals",
@@ -154,3 +158,5 @@ export const programCategories: ProgramCategory[] = [
     ],
   },
 ];
+
+export const FALLBACK_CONTACT = "zoon@deltasociety.xyz";

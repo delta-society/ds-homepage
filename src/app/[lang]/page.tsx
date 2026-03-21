@@ -114,7 +114,7 @@ export default async function Home({
       </section>
 
       {/* ── Join Us ── */}
-      <JoinUsSection lang={lang} />
+      <JoinUsSection lang={lang} t={t} />
 
       {/* ── Events ── */}
       <section id="events" className="py-16 md:py-24 bg-ds-secondary-alt">

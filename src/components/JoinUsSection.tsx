@@ -1,19 +1,17 @@
 import type { Locale } from "@/i18n/config";
-import { programCategories, type ProgramStatus } from "@/data/programs";
+import type { Dictionary } from "@/i18n";
+import { getDictionary } from "@/i18n";
+import { programCategories, FALLBACK_CONTACT, type ProgramStatus } from "@/data/programs";
 
 function StatusBadge({ status, lang }: { status: ProgramStatus; lang: Locale }) {
   const labels: Record<ProgramStatus, { ko: string; en: string }> = {
     recruiting: { ko: "모집중", en: "Open" },
-    active: { ko: "진행중", en: "Active" },
     planning: { ko: "준비중", en: "Coming Soon" },
-    paused: { ko: "일시중단", en: "Paused" },
   };
 
   const colors: Record<ProgramStatus, string> = {
     recruiting: "bg-ds-accent text-ds-primary",
-    active: "bg-white/20 text-white",
     planning: "bg-white/10 text-white/60",
-    paused: "bg-white/5 text-white/40",
   };
 
   return (
@@ -23,37 +21,21 @@ function StatusBadge({ status, lang }: { status: ProgramStatus; lang: Locale }) 
   );
 }
 
-const categoryIcons = ["◈", "◇", "△"];
-
-export default function JoinUsSection({ lang }: { lang: Locale }) {
-  const t = {
-    label: { ko: "JOIN US", en: "JOIN US" },
-    contact: {
-      title: { ko: "아직 잘 모르겠다면", en: "Not sure where to start?" },
-      description: {
-        ko: "편하게 이야기 나눠보세요. 맞는 프로그램을 함께 찾아드립니다.",
-        en: "Let's have a conversation. We'll help you find the right program.",
-      },
-      cta: { ko: "대화 시작하기", en: "Start a Conversation" },
-    },
-    events: {
-      cta: { ko: "다가오는 행사 보기", en: "View Upcoming Events" },
-    },
-  };
-
+export default function JoinUsSection({ lang, t }: { lang: Locale; t: Dictionary }) {
   return (
     <section id="join-us" className="py-16 md:py-24">
       <div className="max-w-[var(--container-max)] mx-auto px-6">
-        <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-16">
-          {t.label[lang]}
+        <p className="text-ds-text-muted font-heading font-semibold text-sm tracking-wider uppercase mb-4">
+          {t.joinUs.label}
         </p>
+        <h2 className="text-3xl md:text-5xl font-bold mb-16">{t.joinUs.title}</h2>
 
         <div className="space-y-20">
-          {programCategories.map((category, catIdx) => (
+          {programCategories.map((category) => (
             <div key={category.id}>
               {/* Category header */}
               <div className="mb-8">
-                <span className="text-2xl mb-2 block">{categoryIcons[catIdx]}</span>
+                <span className="text-2xl mb-2 block" aria-hidden="true">{category.icon}</span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">
                   {category.tagline[lang]}
                 </h3>
@@ -71,8 +53,8 @@ export default function JoinUsSection({ lang }: { lang: Locale }) {
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h4 className="text-lg font-bold">{program.name}</h4>
-                        <p className="text-ds-text-muted text-sm">{program.subtitle}</p>
+                        <h4 className="text-lg font-bold">{program.name[lang]}</h4>
+                        <p className="text-ds-text-muted text-sm">{program.subtitle[lang]}</p>
                       </div>
                       <StatusBadge status={program.status} lang={lang} />
                     </div>
@@ -83,13 +65,13 @@ export default function JoinUsSection({ lang }: { lang: Locale }) {
 
                     {program.status === "recruiting" && (
                       <a
-                        href={program.ctaUrl || `mailto:zoon@deltasociety.xyz?subject=${encodeURIComponent(program.name)}`}
+                        href={program.ctaUrl || `mailto:${FALLBACK_CONTACT}?subject=${encodeURIComponent(program.name[lang])}`}
                         target={program.ctaUrl ? "_blank" : undefined}
                         rel={program.ctaUrl ? "noopener noreferrer" : undefined}
-                        className="inline-flex items-center justify-center gap-2 bg-ds-primary text-white px-5 py-2.5 text-sm font-semibold rounded-md hover:bg-ds-primary-light transition-colors w-full"
+                        className="inline-flex items-center justify-center gap-2 bg-ds-primary text-white px-5 py-2.5 text-sm font-semibold rounded-md hover:bg-ds-primary-light transition-colors w-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
                       >
                         {program.ctaLabel[lang]}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                       </a>
@@ -103,27 +85,27 @@ export default function JoinUsSection({ lang }: { lang: Locale }) {
           {/* Block 4: Contact + Events link */}
           <div className="border-t border-ds-primary/10 pt-12">
             <h3 className="text-2xl md:text-3xl font-bold mb-3">
-              {t.contact.title[lang]}
+              {t.joinUs.contactTitle}
             </h3>
             <p className="text-ds-text-body text-base mb-8 max-w-lg">
-              {t.contact.description[lang]}
+              {t.joinUs.contactDescription}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:zoon@deltasociety.xyz"
-                className="inline-flex items-center justify-center gap-2 bg-ds-primary text-white px-8 py-3 font-heading font-semibold rounded-md hover:bg-ds-primary-light transition-colors"
+                href={`mailto:${FALLBACK_CONTACT}`}
+                className="inline-flex items-center justify-center gap-2 bg-ds-primary text-white px-8 py-3 font-heading font-semibold rounded-md hover:bg-ds-primary-light transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               >
-                {t.contact.cta[lang]}
+                {t.joinUs.contactCta}
               </a>
               <a
                 href="https://lu.ma/deltasociety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-ds-primary/20 text-ds-primary px-8 py-3 font-heading font-semibold rounded-md hover:bg-ds-primary/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-ds-primary/20 text-ds-primary px-8 py-3 font-heading font-semibold rounded-md hover:bg-ds-primary/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               >
-                {t.events.cta[lang]}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {t.joinUs.eventsCta}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>

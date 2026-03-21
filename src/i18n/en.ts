@@ -51,6 +51,14 @@ const en = {
     description: "Join Monthly Delta, GTM Roundtable and more — where outliers gather.",
     register: "View Events on Luma",
   },
+  joinUs: {
+    label: "Join Us",
+    title: "Ways to Get Involved",
+    contactTitle: "Not sure where to start?",
+    contactDescription: "Let's have a conversation. We'll help you find the right program.",
+    contactCta: "Start a Conversation",
+    eventsCta: "View Upcoming Events",
+  },
   cta: {
     title: "Are You an Outlier?",
     description: "If you're someone who drives change, join Delta Society.",

@@ -51,6 +51,14 @@ const ko = {
     description: "Monthly Delta, GTM Roundtable 등 아웃라이어가 모이는 행사를 확인하세요.",
     register: "이벤트 확인하기",
   },
+  joinUs: {
+    label: "Join Us",
+    title: "함께할 수 있는 방법",
+    contactTitle: "아직 잘 모르겠다면",
+    contactDescription: "편하게 이야기 나눠보세요. 맞는 프로그램을 함께 찾아드립니다.",
+    contactCta: "대화 시작하기",
+    eventsCta: "다가오는 행사 보기",
+  },
   cta: {
     title: "Are You an Outlier?",
     description: "변화를 만드는 사람이라면, Delta Society에서 함께하세요.",
