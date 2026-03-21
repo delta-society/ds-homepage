@@ -43,10 +43,10 @@ export default async function ApplyPage({
           <p className="text-sm text-ds-text-muted">
             {t.apply.contact}{" "}
             <a
-              href="mailto:hello@deltasociety.xyz"
+              href="mailto:zoon@deltasociety.xyz"
               className="text-ds-primary font-medium underline underline-offset-4 hover:text-ds-accent transition-colors"
             >
-              hello@deltasociety.xyz
+              zoon@deltasociety.xyz
             </a>
             {t.apply.contactLink}
           </p>
