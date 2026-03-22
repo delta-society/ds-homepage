@@ -1,7 +1,6 @@
 const ko = {
   nav: {
     about: "About",
-    community: "Community",
     joinUs: "Join Us",
   },
   hero: {
@@ -80,27 +79,6 @@ const ko = {
     subscribing: "구독 중...",
     subscribed: "구독 완료!",
     errorSubscribe: "오류 발생",
-  },
-  // Legacy keys kept for /apply and program detail pages
-  programs: {
-    label: "Programs",
-    camp: {
-      title: "Camp",
-      tagline: "AI를 실무에 쓰고 싶다면",
-      desc: "AI 도구를 직접 써보며 배우는 집중 과정.",
-    },
-    builders: {
-      title: "Builders",
-      tagline: "사업을 같이 만들고 싶다면",
-      desc: "아이디어 단계부터 함께 만듭니다. 사업 설계, 기술 구축, 초기 고객까지.",
-    },
-    research: {
-      title: "Research",
-      tagline: "주제를 깊이 파고 싶다면",
-      desc: "같은 주제를 파고드는 사람들이 모여 8주간 실전 리서치를 진행합니다.",
-    },
-    contact: "문의",
-    newsletterNote: "지원 시 Delta Briefing 뉴스레터도 함께 구독됩니다",
   },
   apply: {
     label: "Join Us",

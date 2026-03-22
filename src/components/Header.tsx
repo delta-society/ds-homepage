@@ -14,12 +14,9 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
   const otherLang: Locale = lang === "ko" ? "en" : "ko";
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
-  const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
-
   const navLinks = [
-    { href: isHome ? "#about" : `/${lang}#about`, label: t.nav.about },
-    { href: isHome ? "#community" : `/${lang}#community`, label: t.nav.community },
-    { href: isHome ? "#join" : `/${lang}#join`, label: t.nav.joinUs },
+    { href: `/${lang}#about`, label: t.nav.about },
+    { href: `/${lang}/join`, label: t.nav.joinUs },
   ];
 
   return (
@@ -46,14 +43,6 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
               {link.label}
             </a>
           ))}
-
-          {/* Language Toggle */}
-          <Link
-            href={switchPath}
-            className="text-xs font-medium text-white/50 hover:text-white border border-white/20 px-3 py-1.5 rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-          >
-            {otherLang === "en" ? "EN" : "KO"}
-          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
