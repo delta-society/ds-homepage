@@ -5,14 +5,18 @@ const ko = {
     media: "Media",
     events: "Events",
     joinUs: "Join Us",
+    camp: "Camp",
+    builders: "Builders",
+    research: "Research",
+    apply: "Apply →",
   },
   hero: {
     subtitle: "Delta Society",
     title1: "Compounding",
     title2: "Outliers",
     description: "아웃라이어를 위한 지식 네트워크",
-    cta1: "Join the Club",
-    cta2: "Upcoming Events",
+    cta1: "프로그램 둘러보기",
+    cta2: "뉴스레터 구독",
   },
   about: {
     label: "What We Do",
@@ -37,6 +41,32 @@ const ko = {
       },
     ],
   },
+  programs: {
+    label: "Programs",
+    camp: {
+      title: "Camp",
+      tagline: "AI를 실무에 쓰고 싶다면",
+      desc: "AI 도구를 직접 써보며 배우는 집중 과정.",
+    },
+    builders: {
+      title: "Builders",
+      tagline: "사업을 같이 만들고 싶다면",
+      desc: "아이디어 단계부터 함께 만듭니다. 사업 설계, 기술 구축, 초기 고객까지.",
+    },
+    research: {
+      title: "Research",
+      tagline: "주제를 깊이 파고 싶다면",
+      desc: "같은 주제를 파고드는 사람들이 모여 8주간 실전 리서치를 진행합니다.",
+    },
+    contact: "문의",
+    newsletterNote: "지원 시 Delta Briefing 뉴스레터도 함께 구독됩니다",
+  },
+  newsletter: {
+    label: "Newsletter",
+    title: "Delta Briefing",
+    description: "AI 전환 시대의 인사이트를 격주로 받아보세요.",
+    eventsLink: "다가오는 행사 보기",
+  },
   team: {
     label: "Team",
     title: "People Behind Delta",
@@ -50,14 +80,6 @@ const ko = {
     title: "Upcoming Events",
     description: "Monthly Delta, GTM Roundtable 등 아웃라이어가 모이는 행사를 확인하세요.",
     register: "이벤트 확인하기",
-  },
-  joinUs: {
-    label: "Join Us",
-    title: "함께할 수 있는 방법",
-    contactTitle: "아직 잘 모르겠다면",
-    contactDescription: "편하게 이야기 나눠보세요. 맞는 프로그램을 함께 찾아드립니다.",
-    contactCta: "대화 시작하기",
-    eventsCta: "다가오는 행사 보기",
   },
   cta: {
     title: "Are You an Outlier?",

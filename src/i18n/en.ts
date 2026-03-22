@@ -5,14 +5,18 @@ const en = {
     media: "Media",
     events: "Events",
     joinUs: "Join Us",
+    camp: "Camp",
+    builders: "Builders",
+    research: "Research",
+    apply: "Apply →",
   },
   hero: {
     subtitle: "Delta Society",
     title1: "Compounding",
     title2: "Outliers",
     description: "A knowledge network for outliers",
-    cta1: "Join the Club",
-    cta2: "Upcoming Events",
+    cta1: "Explore Programs",
+    cta2: "Subscribe to Newsletter",
   },
   about: {
     label: "What We Do",
@@ -37,6 +41,32 @@ const en = {
       },
     ],
   },
+  programs: {
+    label: "Programs",
+    camp: {
+      title: "Camp",
+      tagline: "Apply AI in your work",
+      desc: "Intensive courses where you learn by doing with AI tools.",
+    },
+    builders: {
+      title: "Builders",
+      tagline: "Build a business together",
+      desc: "We build together from the idea stage — business design, tech, first customers.",
+    },
+    research: {
+      title: "Research",
+      tagline: "Deep-dive into a topic",
+      desc: "People who share a topic gather for 8 weeks of hands-on research.",
+    },
+    contact: "Contact",
+    newsletterNote: "Applying also subscribes you to Delta Briefing",
+  },
+  newsletter: {
+    label: "Newsletter",
+    title: "Delta Briefing",
+    description: "Biweekly insights for the AI transformation era.",
+    eventsLink: "View Upcoming Events",
+  },
   team: {
     label: "Team",
     title: "People Behind Delta",
@@ -50,14 +80,6 @@ const en = {
     title: "Upcoming Events",
     description: "Join Monthly Delta, GTM Roundtable and more — where outliers gather.",
     register: "View Events on Luma",
-  },
-  joinUs: {
-    label: "Join Us",
-    title: "Ways to Get Involved",
-    contactTitle: "Not sure where to start?",
-    contactDescription: "Let's have a conversation. We'll help you find the right program.",
-    contactCta: "Start a Conversation",
-    eventsCta: "View Upcoming Events",
   },
   cta: {
     title: "Are You an Outlier?",

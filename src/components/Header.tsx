@@ -15,10 +15,9 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
   const navLinks = [
-    { href: `/${lang}#about`, label: t.nav.about },
-    { href: `/${lang}#team`, label: t.nav.team },
-    { href: `/${lang}#join-us`, label: t.nav.joinUs },
-    { href: `/${lang}#events`, label: t.nav.events },
+    { href: `/${lang}/camp`, label: t.nav.camp },
+    { href: `/${lang}/builders`, label: t.nav.builders },
+    { href: `/${lang}/research`, label: t.nav.research },
   ];
 
   return (
@@ -40,7 +39,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors"
+              className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             >
               {link.label}
             </Link>
@@ -49,16 +48,16 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
           {/* Language Toggle */}
           <Link
             href={switchPath}
-            className="text-xs font-medium text-white/50 hover:text-white border border-white/20 px-3 py-1.5 rounded-md transition-colors"
+            className="text-xs font-medium text-white/50 hover:text-white border border-white/20 px-3 py-1.5 rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
           >
             {otherLang === "en" ? "EN" : "KO"}
           </Link>
 
           <Link
-            href={`/${lang}/apply`}
-            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md hover:bg-white transition-colors"
+            href={`/${lang}/camp`}
+            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md hover:bg-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
           >
-            {t.nav.joinUs}
+            {t.nav.apply}
           </Link>
         </nav>
 
@@ -69,7 +68,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             {menuOpen ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
           </svg>
         </button>
@@ -82,7 +81,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm text-white/80 hover:text-ds-spark"
+              className="text-sm text-white/80 hover:text-ds-spark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -90,17 +89,17 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
           ))}
           <Link
             href={switchPath}
-            className="text-sm text-white/50 hover:text-white"
+            className="text-sm text-white/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             onClick={() => setMenuOpen(false)}
           >
             {otherLang === "en" ? "Switch to English" : "한국어로 전환"}
           </Link>
           <Link
-            href={`/${lang}/apply`}
-            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md text-center hover:bg-white"
+            href={`/${lang}/camp`}
+            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md text-center hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             onClick={() => setMenuOpen(false)}
           >
-            {t.nav.joinUs}
+            {t.nav.apply}
           </Link>
         </nav>
       )}
