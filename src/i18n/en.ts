@@ -1,6 +1,7 @@
 const en = {
   nav: {
     about: "About",
+    community: "Community",
     joinUs: "Join Us",
   },
   hero: {
@@ -79,6 +80,27 @@ const en = {
     subscribing: "Subscribing...",
     subscribed: "Subscribed!",
     errorSubscribe: "Error occurred",
+  },
+  // Legacy keys for /apply and program detail pages
+  programs: {
+    label: "Programs",
+    camp: {
+      title: "Camp",
+      tagline: "Apply AI in your work",
+      desc: "Intensive courses where you learn by doing with AI tools.",
+    },
+    builders: {
+      title: "Builders",
+      tagline: "Build a business together",
+      desc: "We build together from the idea stage — business design, tech, first customers.",
+    },
+    research: {
+      title: "Research",
+      tagline: "Deep-dive into a topic",
+      desc: "People who share a topic gather for 8 weeks of hands-on research.",
+    },
+    contact: "Contact",
+    newsletterNote: "Applying also subscribes you to Delta Briefing",
   },
   apply: {
     label: "Join Us",
