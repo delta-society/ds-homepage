@@ -1,22 +1,14 @@
 const ko = {
   nav: {
     about: "About",
-    team: "Team",
-    media: "Media",
-    events: "Events",
+    community: "Community",
     joinUs: "Join Us",
-    camp: "Camp",
-    builders: "Builders",
-    research: "Research",
-    apply: "Apply →",
   },
   hero: {
     subtitle: "Delta Society",
     title1: "Compounding",
     title2: "Outliers",
-    description: "아웃라이어를 위한 지식 네트워크",
-    cta1: "프로그램 둘러보기",
-    cta2: "뉴스레터 구독",
+    description: "만드는 사람들이 연결되는 곳.",
   },
   about: {
     label: "What We Do",
@@ -41,6 +33,55 @@ const ko = {
       },
     ],
   },
+  community: {
+    label: "Community",
+    items: [
+      {
+        tag: "RESEARCH",
+        title: "같은 주제를 파는 사람들의 딥다이브.",
+        stat: "3개 클럽이 동시에 운영되고 있습니다.",
+      },
+      {
+        tag: "BUILDERS",
+        title: "사업을 만들고 있는 사람들의 동료 네트워크.",
+        stat: "19명이 모여 경험을 나누고 있습니다.",
+      },
+      {
+        tag: "EVENT",
+        title: "매달 아웃라이어가 모이는 자리.",
+        stat: "지난 행사에 148명이 모였습니다.",
+      },
+      {
+        tag: "CAMP",
+        title: "AI 도구로 일하는 방식을 바꾸는 집중 과정.",
+        stat: "108명이 거쳐갔습니다.",
+      },
+    ],
+  },
+  team: {
+    label: "Team",
+    title: "만드는 사람들",
+  },
+  join: {
+    label: "Join Us",
+    title: "함께하고 싶다면",
+    newsletterDesc: "격주로 발행하는 Delta Briefing으로 시작하세요.",
+    programsLabel: "이미 관심 있는 프로그램이 있다면:",
+    talkLabel: "직접 이야기하기",
+    partnership: "파트너십 문의",
+  },
+  footer: {
+    tagline: "Where Outliers Connect & Build.",
+    description: "변화의 최전선에 있는 사람들이 모여 지식을 나누고 함께 만드는 커뮤니티.",
+    navigate: "Navigate",
+    stayUpdated: "Stay Updated",
+    newsletterDesc: "아웃라이어의 인사이트를 받아보세요.",
+    subscribe: "구독",
+    subscribing: "구독 중...",
+    subscribed: "구독 완료!",
+    errorSubscribe: "오류 발생",
+  },
+  // Legacy keys kept for /apply and program detail pages
   programs: {
     label: "Programs",
     camp: {
@@ -61,31 +102,6 @@ const ko = {
     contact: "문의",
     newsletterNote: "지원 시 Delta Briefing 뉴스레터도 함께 구독됩니다",
   },
-  newsletter: {
-    label: "Newsletter",
-    title: "Delta Briefing",
-    description: "AI 전환 시대의 인사이트를 격주로 받아보세요.",
-    eventsLink: "다가오는 행사 보기",
-  },
-  team: {
-    label: "Team",
-    title: "People Behind Delta",
-  },
-  media: {
-    label: "From Delta Society",
-    title: "Latest from Our Community",
-  },
-  events: {
-    label: "Events",
-    title: "Upcoming Events",
-    description: "Monthly Delta, GTM Roundtable 등 아웃라이어가 모이는 행사를 확인하세요.",
-    register: "이벤트 확인하기",
-  },
-  cta: {
-    title: "Are You an Outlier?",
-    description: "변화를 만드는 사람이라면, Delta Society에서 함께하세요.",
-    button: "Apply to Join",
-  },
   apply: {
     label: "Join Us",
     title: "Delta Society에\n합류하세요",
@@ -95,17 +111,6 @@ const ko = {
     formHelp: "Fillout / Typeform 등 기존 폼의 iframe embed URL을 설정하면 자동으로 표시됩니다.",
     contact: "파트너십이나 투자 관련 문의는",
     contactLink: "로 연락해주세요.",
-  },
-  footer: {
-    tagline: "Where Outliers Connect & Build.",
-    description: "변화의 최전선에 있는 사람들이 모여 지식을 나누고 함께 만드는 커뮤니티.",
-    navigate: "Navigate",
-    stayUpdated: "Stay Updated",
-    newsletterDesc: "아웃라이어의 인사이트를 받아보세요.",
-    subscribe: "구독",
-    subscribing: "구독 중...",
-    subscribed: "구독 완료!",
-    errorSubscribe: "오류 발생",
   },
 } as const;
 

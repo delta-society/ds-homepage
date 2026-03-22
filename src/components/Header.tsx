@@ -14,10 +14,12 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
   const otherLang: Locale = lang === "ko" ? "en" : "ko";
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
+  const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
+
   const navLinks = [
-    { href: `/${lang}/camp`, label: t.nav.camp },
-    { href: `/${lang}/builders`, label: t.nav.builders },
-    { href: `/${lang}/research`, label: t.nav.research },
+    { href: isHome ? "#about" : `/${lang}#about`, label: t.nav.about },
+    { href: isHome ? "#community" : `/${lang}#community`, label: t.nav.community },
+    { href: isHome ? "#join" : `/${lang}#join`, label: t.nav.joinUs },
   ];
 
   return (
@@ -36,13 +38,13 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-white/80 hover:text-ds-spark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
 
           {/* Language Toggle */}
@@ -51,13 +53,6 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             className="text-xs font-medium text-white/50 hover:text-white border border-white/20 px-3 py-1.5 rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
           >
             {otherLang === "en" ? "EN" : "KO"}
-          </Link>
-
-          <Link
-            href={`/${lang}/camp`}
-            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md hover:bg-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-          >
-            {t.nav.apply}
           </Link>
         </nav>
 
@@ -78,14 +73,14 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
       {menuOpen && (
         <nav className="md:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
               href={link.href}
               className="text-sm text-white/80 hover:text-ds-spark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <Link
             href={switchPath}
@@ -93,13 +88,6 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             onClick={() => setMenuOpen(false)}
           >
             {otherLang === "en" ? "Switch to English" : "한국어로 전환"}
-          </Link>
-          <Link
-            href={`/${lang}/camp`}
-            className="bg-ds-secondary text-ds-primary px-5 py-2 text-sm font-semibold rounded-md text-center hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-            onClick={() => setMenuOpen(false)}
-          >
-            {t.nav.apply}
           </Link>
         </nav>
       )}

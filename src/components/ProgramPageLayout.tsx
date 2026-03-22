@@ -95,29 +95,16 @@ export default function ProgramPageLayout({ lang, t, category }: ProgramPageLayo
         </div>
       </section>
 
-      {/* Newsletter section */}
+      {/* Join section */}
       <section className="py-16 md:py-24 bg-ds-primary text-white">
         <div className="max-w-[var(--container-max)] mx-auto px-6">
           <div className="max-w-xl">
             <p className="text-ds-accent font-heading font-medium text-sm tracking-wider uppercase mb-4">
-              {t.newsletter.label}
+              {t.join.label}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.newsletter.title}</h2>
-            <p className="text-white/70 text-lg mb-8">{t.newsletter.description}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.join.title}</h2>
+            <p className="text-white/70 text-lg mb-8">{t.join.newsletterDesc}</p>
             <NewsletterForm t={t} />
-            <div className="mt-6">
-              <a
-                href="https://lu.ma/deltasociety"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-ds-accent hover:text-white transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-              >
-                {t.newsletter.eventsLink}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </a>
-            </div>
           </div>
         </div>
       </section>

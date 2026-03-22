@@ -1,22 +1,14 @@
 const en = {
   nav: {
     about: "About",
-    team: "Team",
-    media: "Media",
-    events: "Events",
+    community: "Community",
     joinUs: "Join Us",
-    camp: "Camp",
-    builders: "Builders",
-    research: "Research",
-    apply: "Apply →",
   },
   hero: {
     subtitle: "Delta Society",
     title1: "Compounding",
     title2: "Outliers",
-    description: "A knowledge network for outliers",
-    cta1: "Explore Programs",
-    cta2: "Subscribe to Newsletter",
+    description: "Where builders connect.",
   },
   about: {
     label: "What We Do",
@@ -41,6 +33,55 @@ const en = {
       },
     ],
   },
+  community: {
+    label: "Community",
+    items: [
+      {
+        tag: "RESEARCH",
+        title: "Deep-dives by people obsessed with the same topic.",
+        stat: "3 clubs running simultaneously.",
+      },
+      {
+        tag: "BUILDERS",
+        title: "A peer network for people building businesses.",
+        stat: "19 members sharing experiences.",
+      },
+      {
+        tag: "EVENT",
+        title: "Monthly gatherings where outliers meet.",
+        stat: "148 attendees at the last event.",
+      },
+      {
+        tag: "CAMP",
+        title: "An intensive course to transform how you work with AI.",
+        stat: "108 alumni and counting.",
+      },
+    ],
+  },
+  team: {
+    label: "Team",
+    title: "People Behind Delta",
+  },
+  join: {
+    label: "Join Us",
+    title: "If you'd like to join",
+    newsletterDesc: "Start with our biweekly Delta Briefing.",
+    programsLabel: "Already know which program you want?",
+    talkLabel: "Talk to us directly",
+    partnership: "Partnership inquiries",
+  },
+  footer: {
+    tagline: "Where Outliers Connect & Build.",
+    description: "A community where people at the frontier of change come together to share knowledge and build.",
+    navigate: "Navigate",
+    stayUpdated: "Stay Updated",
+    newsletterDesc: "Get insights from the outlier community.",
+    subscribe: "Subscribe",
+    subscribing: "Subscribing...",
+    subscribed: "Subscribed!",
+    errorSubscribe: "Error occurred",
+  },
+  // Legacy keys for /apply and program detail pages
   programs: {
     label: "Programs",
     camp: {
@@ -61,31 +102,6 @@ const en = {
     contact: "Contact",
     newsletterNote: "Applying also subscribes you to Delta Briefing",
   },
-  newsletter: {
-    label: "Newsletter",
-    title: "Delta Briefing",
-    description: "Biweekly insights for the AI transformation era.",
-    eventsLink: "View Upcoming Events",
-  },
-  team: {
-    label: "Team",
-    title: "People Behind Delta",
-  },
-  media: {
-    label: "From Delta Society",
-    title: "Latest from Our Community",
-  },
-  events: {
-    label: "Events",
-    title: "Upcoming Events",
-    description: "Join Monthly Delta, GTM Roundtable and more — where outliers gather.",
-    register: "View Events on Luma",
-  },
-  cta: {
-    title: "Are You an Outlier?",
-    description: "If you're someone who drives change, join Delta Society.",
-    button: "Apply to Join",
-  },
   apply: {
     label: "Join Us",
     title: "Join\nDelta Society",
@@ -95,17 +111,6 @@ const en = {
     formHelp: "Set up the iframe embed URL from Fillout / Typeform to display automatically.",
     contact: "For partnership or investment inquiries, contact us at",
     contactLink: ".",
-  },
-  footer: {
-    tagline: "Where Outliers Connect & Build.",
-    description: "A community where people at the frontier of change come together to share knowledge and build.",
-    navigate: "Navigate",
-    stayUpdated: "Stay Updated",
-    newsletterDesc: "Get insights from the outlier community.",
-    subscribe: "Subscribe",
-    subscribing: "Subscribing...",
-    subscribed: "Subscribed!",
-    errorSubscribe: "Error occurred",
   },
 } as const;
 

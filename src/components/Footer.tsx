@@ -6,58 +6,77 @@ import { NewsletterForm } from "./NewsletterForm";
 
 export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
   return (
-    <footer className="bg-ds-primary text-white">
+    <footer className="bg-ds-secondary">
       <div className="max-w-[var(--container-max)] mx-auto px-6 py-16">
-        {/* Newsletter — single clean row */}
-        <div className="border-b border-white/10 pb-12 mb-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-sm text-white/60">
-              {t.footer.newsletterDesc}
-            </p>
-            <div className="w-full md:w-auto md:min-w-[360px]">
-              <NewsletterForm t={t} />
-            </div>
-          </div>
-        </div>
-
         {/* Brand + Links */}
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
           <div>
             <Image
-              src="/images/logo-primary.svg"
+              src="/images/logo-dark.svg"
               alt="Delta Society"
               width={140}
               height={32}
               className="mb-3"
             />
-            <p className="text-white/50 text-sm max-w-sm leading-relaxed">
+            <p className="text-ds-text-muted text-sm max-w-sm leading-relaxed">
               {t.footer.tagline}
             </p>
           </div>
 
-          <nav className="flex gap-8 text-sm">
-            <Link href={`/${lang}#about`} className="text-white/50 hover:text-white transition-colors">
-              {t.nav.about}
-            </Link>
-            <Link href={`/${lang}#team`} className="text-white/50 hover:text-white transition-colors">
-              {t.nav.team}
-            </Link>
-            <Link href={`/${lang}#events`} className="text-white/50 hover:text-white transition-colors">
-              {t.nav.events}
-            </Link>
-          </nav>
+          <div className="flex flex-col md:flex-row gap-8">
+            <nav className="flex flex-col gap-3 text-sm">
+              <Link href={`/${lang}#about`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                {t.nav.about}
+              </Link>
+              <Link href={`/${lang}#community`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                {t.nav.community}
+              </Link>
+              <Link href={`/${lang}#join`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                {t.nav.joinUs}
+              </Link>
+            </nav>
+
+            <nav className="flex flex-col gap-3 text-sm">
+              <Link href={`/${lang}/camp`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                Camp
+              </Link>
+              <Link href={`/${lang}/research`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                Research
+              </Link>
+              <Link href={`/${lang}/builders`} className="text-ds-text-muted hover:text-ds-primary transition-colors">
+                Builders
+              </Link>
+            </nav>
+
+            <nav className="flex flex-col gap-3 text-sm">
+              <a
+                href="https://lu.ma/deltasociety"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ds-text-muted hover:text-ds-primary transition-colors"
+              >
+                Events ↗
+              </a>
+              <a
+                href="mailto:zoon@deltasociety.xyz"
+                className="text-ds-text-muted hover:text-ds-primary transition-colors"
+              >
+                {t.join.partnership}
+              </a>
+            </nav>
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/50">
+        <div className="border-t border-ds-primary/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-ds-text-muted">
             © 2026 Delta Society. All rights reserved.
           </p>
           <a
             href="https://linkedin.com/company/deltasociety"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/50 hover:text-white transition-colors"
+            className="text-ds-text-muted hover:text-ds-primary transition-colors"
             aria-label="LinkedIn"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
