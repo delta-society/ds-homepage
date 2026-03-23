@@ -13,7 +13,7 @@
   --color-ds-spark-gold: #FFD700;
   --color-ds-text-heading: #1C1917;
   --color-ds-text-body: #44403C;
-  --color-ds-text-muted: #57534E;
+  --color-ds-text-muted: #78716C;
 
   /* Typography */
   --font-heading: "Space Grotesk", system-ui, sans-serif;
@@ -21,7 +21,7 @@
   --font-mono: "JetBrains Mono", monospace;
 
   /* Spacing */
-  --container-max: 1200px;
+  --container-max: 1280px;
 }
 
 /* Font imports */
@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pillar-card:hover {
-  border-color: rgba(28, 25, 23, 0.15);
+  border-color: var(--color-ds-spark);
   box-shadow: 0 8px 40px rgba(28, 25, 23, 0.06);
   transform: translateY(-2px);
 }
@@ -167,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-card:hover {
-  border-color: rgba(28, 25, 23, 0.15);
+  border-color: var(--color-ds-spark);
   box-shadow: 0 8px 40px rgba(28, 25, 23, 0.06);
 }
 

@@ -4,12 +4,6 @@ import { getDictionary } from "@/i18n";
 import { team } from "@/data/team";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
-const pillarIcons = [
-  { symbol: "△", bg: "bg-ds-accent/[0.07]", color: "text-ds-accent" },
-  { symbol: "◇", bg: "bg-ds-spark/[0.07]", color: "text-ds-spark" },
-  { symbol: "◈", bg: "bg-white/[0.07]", color: "text-ds-text-heading" },
-];
-
 const communityLinks = [
   { path: "research", external: false },
   { path: "builders", external: false },
@@ -64,11 +58,6 @@ export default async function Home({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {t.about.pillars.map((item, i) => (
               <div key={item.title} className="pillar-card">
-                <div className={`pillar-icon ${pillarIcons[i].bg}`}>
-                  <span className={`${pillarIcons[i].color} text-xl`} aria-hidden="true">
-                    {pillarIcons[i].symbol}
-                  </span>
-                </div>
                 <h3 className="text-lg font-bold mb-1 text-ds-text-heading">{item.title}</h3>
                 <p className="text-ds-text-muted text-[0.8125rem] mb-4 font-medium">{item.subtitle}</p>
                 <p className="text-ds-text-body/70 text-[0.9375rem] leading-[1.7]">{item.desc}</p>
@@ -78,45 +67,55 @@ export default async function Home({
         </div>
       </section>
 
-      {/* ── 3. Community ── */}
-      <section id="community" className="relative bg-ds-primary text-white py-24 md:py-32 grain overflow-hidden">
+      {/* ── 3. Join Us ── */}
+      <section id="join" className="relative bg-ds-primary text-white py-24 md:py-32 grain overflow-hidden">
         <div className="relative z-10 max-w-[var(--container-max)] mx-auto px-6">
-          <p className="text-ds-accent/80 font-heading font-semibold text-[0.75rem] tracking-[0.2em] uppercase mb-16">
-            {t.community.label}
-          </p>
-          <div className="divide-y divide-white/[0.06]">
-            {t.community.items.map((item, i) => {
-              const link = communityLinks[i];
-              const isExternal = link.external;
-              const href = isExternal ? link.path : `/${lang}/${link.path}`;
+          <div className="max-w-xl">
+            <p className="text-ds-accent/80 font-heading font-medium text-[0.75rem] tracking-[0.2em] uppercase mb-5">
+              {t.join.label}
+            </p>
+            <h2 className="text-3xl md:text-[2.75rem] font-bold mb-4 leading-[1.1]">{t.join.title}</h2>
+            <p className="text-white/50 text-[1.0625rem] mb-10 leading-relaxed">{t.join.newsletterDesc}</p>
 
-              return (
-                <a
-                  key={item.tag}
-                  href={href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  className="community-row group flex items-start md:items-center justify-between py-10 md:py-12 -mx-6 px-6 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+            <NewsletterForm t={t} />
+
+            <div className="mt-12 pt-10 border-t border-white/[0.06]">
+              <p className="text-white/35 text-sm mb-4">{t.join.programsLabel}</p>
+              <div className="flex flex-wrap gap-5">
+                <Link
+                  href={`/${lang}/camp`}
+                  className="text-ds-accent/80 hover:text-ds-spark transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
                 >
-                  <div className="flex-1">
-                    <p className="text-ds-accent font-heading font-semibold text-[0.6875rem] tracking-[0.2em] uppercase mb-3">
-                      {item.tag}
-                    </p>
-                    <p className="text-white text-xl md:text-2xl font-medium leading-snug tracking-[-0.01em]">
-                      {item.title}
-                    </p>
-                  </div>
-                  <div className="ml-8 mt-1 md:mt-0 text-white/20 group-hover:text-ds-accent group-hover:translate-x-1.5 transition-all duration-300 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                      {isExternal
-                        ? <path d="M7 17L17 7M17 7H7M17 7v10" />
-                        : <path d="M5 12h14M12 5l7 7-7 7" />
-                      }
-                    </svg>
-                  </div>
+                  Camp →
+                </Link>
+                <Link
+                  href={`/${lang}/research`}
+                  className="text-ds-accent/80 hover:text-ds-spark transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                >
+                  Research →
+                </Link>
+                <Link
+                  href={`/${lang}/builders`}
+                  className="text-ds-accent/80 hover:text-ds-spark transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                >
+                  Builders →
+                </Link>
+                <a
+                  href="https://lu.ma/deltasociety"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ds-accent/80 hover:text-ds-spark transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                >
+                  Events ↗
                 </a>
-              );
-            })}
+                <a
+                  href="mailto:zoon@deltasociety.xyz"
+                  className="text-white/35 hover:text-ds-spark transition-colors text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                >
+                  {t.join.talkLabel} →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -145,7 +144,7 @@ export default async function Home({
                     href={member.sns.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-ds-text-muted hover:text-ds-primary transition-colors text-[0.8125rem] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                    className="text-ds-text-muted hover:text-ds-spark transition-colors text-[0.8125rem] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
                     aria-label={`${member.name} LinkedIn`}
                   >
                     LinkedIn →
@@ -157,47 +156,45 @@ export default async function Home({
         </div>
       </section>
 
-      {/* ── 5. Join Us ── */}
-      <section id="join" className="relative bg-ds-primary text-white py-24 md:py-32 grain overflow-hidden">
+      {/* ── 5. Community ── */}
+      <section id="community" className="relative bg-ds-primary text-white py-24 md:py-32 grain overflow-hidden">
         <div className="relative z-10 max-w-[var(--container-max)] mx-auto px-6">
-          <div className="max-w-xl">
-            <p className="text-ds-accent/80 font-heading font-medium text-[0.75rem] tracking-[0.2em] uppercase mb-5">
-              {t.join.label}
-            </p>
-            <h2 className="text-3xl md:text-[2.75rem] font-bold mb-4 leading-[1.1]">{t.join.title}</h2>
-            <p className="text-white/50 text-[1.0625rem] mb-10 leading-relaxed">{t.join.newsletterDesc}</p>
+          <p className="text-ds-accent/80 font-heading font-semibold text-[0.75rem] tracking-[0.2em] uppercase mb-16">
+            {t.community.label}
+          </p>
+          <div className="divide-y divide-white/[0.06]">
+            {t.community.items.map((item, i) => {
+              const link = communityLinks[i];
+              const isExternal = link.external;
+              const href = isExternal ? link.path : `/${lang}/${link.path}`;
 
-            <NewsletterForm t={t} />
-
-            <div className="mt-12 pt-10 border-t border-white/[0.06]">
-              <p className="text-white/35 text-sm mb-4">{t.join.programsLabel}</p>
-              <div className="flex flex-wrap gap-5">
-                <Link
-                  href={`/${lang}/camp`}
-                  className="text-ds-accent/80 hover:text-white transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-                >
-                  Camp →
-                </Link>
-                <Link
-                  href={`/${lang}/research`}
-                  className="text-ds-accent/80 hover:text-white transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-                >
-                  Research →
-                </Link>
-                <Link
-                  href={`/${lang}/builders`}
-                  className="text-ds-accent/80 hover:text-white transition-colors text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
-                >
-                  Builders →
-                </Link>
+              return (
                 <a
-                  href="mailto:zoon@deltasociety.xyz"
-                  className="text-white/35 hover:text-white transition-colors text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+                  key={item.tag}
+                  href={href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className="community-row group flex items-start md:items-center justify-between py-10 md:py-12 -mx-6 px-6 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
                 >
-                  {t.join.talkLabel} →
+                  <div className="flex-1">
+                    <p className="text-ds-accent font-heading font-semibold text-[0.6875rem] tracking-[0.2em] uppercase mb-3">
+                      {item.tag}
+                    </p>
+                    <p className="text-white text-xl md:text-2xl font-medium leading-snug tracking-[-0.01em]">
+                      {item.title}
+                    </p>
+                  </div>
+                  <div className="ml-8 mt-1 md:mt-0 text-white/20 group-hover:text-ds-spark group-hover:translate-x-1.5 transition-all duration-300 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                      {isExternal
+                        ? <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        : <path d="M5 12h14M12 5l7 7-7 7" />
+                      }
+                    </svg>
+                  </div>
                 </a>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>

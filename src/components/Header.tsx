@@ -27,10 +27,10 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
       <div className="max-w-[var(--container-max)] mx-auto px-6 py-4 flex items-center justify-between">
         <Link href={`/${lang}`} className="flex items-center gap-3">
           <Image
-            src="/images/logo-primary.svg"
+            src="/images/logo-white.png"
             alt="Delta Society"
-            width={130}
-            height={30}
+            width={160}
+            height={37}
             priority
           />
         </Link>
@@ -41,7 +41,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             <a
               key={link.label}
               href={link.href}
-              className="text-[0.8125rem] font-medium text-white/60 hover:text-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+              className="text-[0.8125rem] font-medium text-white/60 hover:text-ds-spark transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             >
               {link.label}
             </a>
@@ -75,7 +75,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-white/60 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+              className="text-sm text-white/60 hover:text-ds-spark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -83,7 +83,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary }) {
           ))}
           <Link
             href={switchPath}
-            className="text-sm text-white/40 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
+            className="text-sm text-white/40 hover:text-ds-spark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ds-accent"
             onClick={() => setMenuOpen(false)}
           >
             {otherLang === "en" ? "Switch to English" : "한국어로 전환"}

@@ -5,44 +5,44 @@ import type { Dictionary } from "@/i18n";
 
 export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
   return (
-    <footer className="bg-ds-secondary border-t border-ds-primary/[0.06]">
+    <footer className="bg-ds-primary text-white border-t border-white/[0.04]">
       <div className="max-w-[var(--container-max)] mx-auto px-6 py-16">
         {/* Brand + Links */}
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 mb-14">
           <div>
             <Image
-              src="/images/logo-primary.svg"
+              src="/images/logo-white.png"
               alt="Delta Society"
-              width={120}
-              height={28}
-              className="mb-4 brightness-0"
+              width={150}
+              height={35}
+              className="mb-4"
             />
-            <p className="text-ds-text-muted/70 text-sm max-w-xs leading-relaxed">
+            <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               {t.footer.tagline}
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-12">
             <nav className="flex flex-col gap-3.5 text-[0.8125rem]">
-              <Link href={`/${lang}#about`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}#about`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 {t.nav.about}
               </Link>
-              <Link href={`/${lang}#community`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}#community`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 {t.nav.community}
               </Link>
-              <Link href={`/${lang}#join`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}#join`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 {t.nav.joinUs}
               </Link>
             </nav>
 
             <nav className="flex flex-col gap-3.5 text-[0.8125rem]">
-              <Link href={`/${lang}/camp`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}/camp`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 Camp
               </Link>
-              <Link href={`/${lang}/research`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}/research`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 Research
               </Link>
-              <Link href={`/${lang}/builders`} className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200">
+              <Link href={`/${lang}/builders`} className="text-white/50 hover:text-ds-spark transition-colors duration-200">
                 Builders
               </Link>
             </nav>
@@ -52,13 +52,13 @@ export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
                 href="https://lu.ma/deltasociety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200"
+                className="text-white/50 hover:text-ds-spark transition-colors duration-200"
               >
                 Events ↗
               </a>
               <a
                 href="mailto:zoon@deltasociety.xyz"
-                className="text-ds-text-muted/70 hover:text-ds-primary transition-colors duration-200"
+                className="text-white/50 hover:text-ds-spark transition-colors duration-200"
               >
                 {t.join.partnership}
               </a>
@@ -67,15 +67,15 @@ export default function Footer({ lang, t }: { lang: Locale; t: Dictionary }) {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-ds-primary/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[0.75rem] text-ds-text-muted/50">
+        <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[0.75rem] text-white/50">
             © 2026 Delta Society. All rights reserved.
           </p>
           <a
-            href="https://linkedin.com/company/deltasociety"
+            href="https://www.linkedin.com/company/delta-society-xyz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ds-text-muted/40 hover:text-ds-primary transition-colors duration-200"
+            className="text-white/50 hover:text-ds-spark transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
