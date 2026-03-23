@@ -39,22 +39,18 @@ const en = {
       {
         tag: "RESEARCH",
         title: "Deep-dives by people obsessed with the same topic.",
-        stat: "3 clubs running simultaneously.",
       },
       {
         tag: "BUILDERS",
         title: "A peer network for people building businesses.",
-        stat: "19 members sharing experiences.",
       },
       {
         tag: "EVENT",
         title: "Monthly gatherings where outliers meet.",
-        stat: "148 attendees at the last event.",
       },
       {
         tag: "CAMP",
         title: "An intensive course to transform how you work with AI.",
-        stat: "108 alumni and counting.",
       },
     ],
   },

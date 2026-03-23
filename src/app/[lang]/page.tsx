@@ -102,11 +102,8 @@ export default async function Home({
                     <p className="text-ds-accent font-heading font-semibold text-[0.6875rem] tracking-[0.2em] uppercase mb-3">
                       {item.tag}
                     </p>
-                    <p className="text-white text-xl md:text-2xl font-medium leading-snug mb-2 tracking-[-0.01em]">
+                    <p className="text-white text-xl md:text-2xl font-medium leading-snug tracking-[-0.01em]">
                       {item.title}
-                    </p>
-                    <p className="text-white/35 text-sm">
-                      {item.stat}
                     </p>
                   </div>
                   <div className="ml-8 mt-1 md:mt-0 text-white/20 group-hover:text-ds-accent group-hover:translate-x-1.5 transition-all duration-300 shrink-0">
