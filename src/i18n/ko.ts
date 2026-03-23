@@ -98,6 +98,21 @@ const ko = {
     contact: "문의",
     newsletterNote: "지원 시 Delta Briefing 뉴스레터도 함께 구독됩니다",
   },
+  subscribe: {
+    label: "Newsletter",
+    title: "Delta Briefing",
+    subtitle: "아웃라이어의 인사이트를\n격주로 받아보세요.",
+    description:
+      "시장의 변화 신호, 검증된 지식, 사업 기회 — 변화의 최전선에 있는 사람들의 인사이트를 격주로 전해드립니다.",
+    placeholder: "you@example.com",
+    cta: "소식 받아보기",
+    submitting: "등록 중...",
+    success: "확인 메일을 보냈습니다. 메일함에서 구독을 완료해주세요.",
+    error: "오류가 발생했습니다. 다시 시도해주세요.",
+    rateLimit: "잠시 후 다시 시도해주세요.",
+    privacy: "스팸은 보내지 않습니다. 언제든 구독 취소할 수 있습니다.",
+    backToHome: "홈으로 돌아가기",
+  },
   apply: {
     label: "Join Us",
     title: "Delta Society에\n합류하세요",

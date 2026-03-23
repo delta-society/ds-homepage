@@ -98,6 +98,21 @@ const en = {
     contact: "Contact",
     newsletterNote: "Applying also subscribes you to Delta Briefing",
   },
+  subscribe: {
+    label: "Newsletter",
+    title: "Delta Briefing",
+    subtitle: "Outlier insights,\ndelivered biweekly.",
+    description:
+      "Market signals, verified knowledge, business opportunities — insights from people at the frontier of change, delivered to your inbox every two weeks.",
+    placeholder: "you@example.com",
+    cta: "Subscribe",
+    submitting: "Subscribing...",
+    success: "Check your inbox to confirm your subscription.",
+    error: "Something went wrong. Please try again.",
+    rateLimit: "Too many attempts. Please try again later.",
+    privacy: "No spam. Unsubscribe anytime.",
+    backToHome: "Back to home",
+  },
   apply: {
     label: "Join Us",
     title: "Join\nDelta Society",
